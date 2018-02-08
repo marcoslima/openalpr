@@ -24,6 +24,9 @@
 #include <stdint.h>
 #include <vector>
 
+#include <opencv2/opencv.hpp>
+
+
 #ifdef WIN32
   #define OPENALPR_DLL_EXPORT __declspec( dllexport )
 #else
@@ -147,6 +150,9 @@ namespace alpr
       void setDetectRegion(bool detectRegion);
       void setTopN(int topN);
       void setDefaultRegion(std::string region);
+
+      // Recognize from OpenCV Image
+      AlprResults recognize(cv::Mat);
 
       // Recognize from an image on disk
       AlprResults recognize(std::string filepath);
