@@ -118,7 +118,12 @@ namespace alpr
 
   void Alpr::setDefaultRegion(std::string region)
   {
-    impl->setDefaultRegion(region);
+      impl->setDefaultRegion(region);
+  }
+
+  AlprResults Alpr::recognize(cv::Mat image)
+  {
+      impl->recognize(image);
   }
 
   bool Alpr::isLoaded()
