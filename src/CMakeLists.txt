@@ -109,6 +109,8 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 
 add_definitions( -DOPENCV_MAJOR_VERSION=${OpenCV_VERSION_MAJOR})
 
+include_directories(./openalpr )
+
 IF (WITH_QT5)
   find_package(Qt5Core)
   find_package(Qt5Gui)
@@ -117,8 +119,6 @@ IF (WITH_QT5)
   find_package(Qt5Concurrent)
   target_link_libraries(openalpr Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Test Qt5::Concurrent)
 ENDIF()
-
-include_directories(./openalpr )
 
 IF (WIN32)
 	add_definitions( -DWINDOWS)
