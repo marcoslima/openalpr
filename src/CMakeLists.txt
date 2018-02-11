@@ -129,7 +129,7 @@ ELSE()
 ENDIF()
 
 
-set(CMAKE_CSS_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall ")
+set(CMAKE_CSS_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall -fopenmp ")
 if (NOT IOS)
   ADD_EXECUTABLE( alpr  main.cpp )
 ENDIF()
@@ -165,7 +165,6 @@ if (NOT IOS)
     ${OpenCV_LIBS}
     ${Tesseract_LIBRARIES}
     ${Extra_LIBS}
-    openmp
   )
 ENDIF()
 
