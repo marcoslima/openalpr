@@ -165,6 +165,7 @@ if (NOT IOS)
     ${OpenCV_LIBS}
     ${Tesseract_LIBRARIES}
     ${Extra_LIBS}
+    gomp
   )
 ENDIF()
 
