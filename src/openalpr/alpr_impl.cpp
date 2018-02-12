@@ -463,7 +463,21 @@ namespace alpr
       std::cerr << "Caught exception in OpenALPR recognize: " << e.msg << std::endl;
       AlprResults emptyresults;
       return emptyresults;
-    }
+      }
+  }
+
+  AlprResults AlprImpl::recognizeMat(Mat img)
+  {
+      try
+      {
+        return this->recognize(img);
+      }
+      catch (cv::Exception& e)
+      {
+        std::cerr << "Caught exception in OpenALPR recognize: " << e.msg << std::endl;
+        AlprResults emptyresults;
+        return emptyresults;
+      }
   }
 
   AlprResults AlprImpl::recognize(cv::Mat img)
