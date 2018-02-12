@@ -37,6 +37,11 @@ namespace alpr
     delete impl;
   }
 
+  AlprResults Alpr::recognize(cv::Mat image)
+  {
+      return impl->recognizeMat(image);
+  }
+
   AlprResults Alpr::recognize(std::string filepath)
   {
     
@@ -119,11 +124,6 @@ namespace alpr
   void Alpr::setDefaultRegion(std::string region)
   {
       impl->setDefaultRegion(region);
-  }
-
-  AlprResults Alpr::recognize(cv::Mat image)
-  {
-      impl->recognize(image);
   }
 
   bool Alpr::isLoaded()

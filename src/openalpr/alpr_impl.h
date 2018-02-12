@@ -85,6 +85,7 @@ namespace alpr
       AlprResults recognize( std::vector<char> imageBytes );
       AlprResults recognize( std::vector<char> imageBytes, std::vector<AlprRegionOfInterest> regionsOfInterest );
       AlprResults recognize( unsigned char* pixelData, int bytesPerPixel, int imgWidth, int imgHeight, std::vector<AlprRegionOfInterest> regionsOfInterest );
+      AlprResults recognizeMat( cv::Mat img );
       AlprResults recognize( cv::Mat img );
       AlprResults recognize( cv::Mat img, std::vector<cv::Rect> regionsOfInterest );
 
