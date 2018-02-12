@@ -109,7 +109,6 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 
 add_definitions( -DOPENCV_MAJOR_VERSION=${OpenCV_VERSION_MAJOR})
 
-
 include_directories(./openalpr )
 
 IF (WIN32)
@@ -130,7 +129,7 @@ ELSE()
 ENDIF()
 
 
-set(CMAKE_CSS_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall ")
+set(CMAKE_CSS_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall -fopenmp ")
 if (NOT IOS)
   ADD_EXECUTABLE( alpr  main.cpp )
 ENDIF()
@@ -149,6 +148,14 @@ ELSE()
   add_definitions( -DSKIP_STATE_DETECTION=1 )
 ENDIF()
 
+IF (WITH_QT5)
+  find_package(Qt5Core)
+  find_package(Qt5Gui)
+  find_package(Qt5Widgets)
+  find_package(Qt5Test)
+  find_package(Qt5Concurrent)
+ENDIF()
+
 if (NOT IOS)
   TARGET_LINK_LIBRARIES(alpr
     ${OPENALPR_LIB}
@@ -158,6 +165,7 @@ if (NOT IOS)
     ${OpenCV_LIBS}
     ${Tesseract_LIBRARIES}
     ${Extra_LIBS}
+    gomp
   )
 ENDIF()
 
